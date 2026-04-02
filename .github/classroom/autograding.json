@@ -1,0 +1,193 @@
+{
+  "tests": [
+    {
+      "name": "1. programa.i existe",
+      "setup": "",
+      "run": "test -f programa.i",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 3
+    },
+    {
+      "name": "2. No hay #define en programa.i (macros expandidas)",
+      "setup": "",
+      "run": "test -f programa.i && ! grep -q '^#define' programa.i",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "3. VERSION expandido a '1.0' en programa.i",
+      "setup": "",
+      "run": "grep -q '\"1\\.0\"' programa.i",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "4. CUADRADO(LIMITE) expandido a ((5) * (5)) en programa.i",
+      "setup": "",
+      "run": "grep -qF '((5) * (5))' programa.i",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "5. Comentarios eliminados de programa.i",
+      "setup": "",
+      "run": "! grep -q 'Archivo fuente principal' programa.i",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 3
+    },
+    {
+      "name": "6. programa.i incluye headers completos (>500 lineas)",
+      "setup": "",
+      "run": "test $(wc -l < programa.i) -gt 500",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 3
+    },
+    {
+      "name": "7. programa.s existe",
+      "setup": "",
+      "run": "test -f programa.s",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 3
+    },
+    {
+      "name": "8. sumar definida en programa.s",
+      "setup": "",
+      "run": "grep -qE '^(sumar|_sumar):' programa.s",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 4
+    },
+    {
+      "name": "9. area_circulo llamada pero no definida en programa.s",
+      "setup": "",
+      "run": "grep -q 'area_circulo' programa.s && ! grep -qE '^(area_circulo|_area_circulo):' programa.s",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "10. nm_programa_o.txt tiene area_circulo como U (indefinido)",
+      "setup": "",
+      "run": "test -f salidas/nm_programa_o.txt && grep -qE 'U.*(area_circulo|_area_circulo)' salidas/nm_programa_o.txt",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "11. nm_ejecutable.txt tiene area_circulo como T (resuelto)",
+      "setup": "",
+      "run": "test -f salidas/nm_ejecutable.txt && grep -qE 'T.*(area_circulo|_area_circulo)' salidas/nm_ejecutable.txt",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "12. salida_debug.txt contiene [DEBUG]",
+      "setup": "",
+      "run": "test -f salidas/salida_debug.txt && grep -q '\\[DEBUG\\]' salidas/salida_debug.txt",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "13. Los fuentes compilan y producen factorial(5)=120",
+      "setup": "apt-get install -y gcc > /dev/null 2>&1 || true",
+      "run": "gcc -Wall programa.c matematica.c -o programa_ci && ./programa_ci | grep -q '120'",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 30, "points": 5
+    },
+    {
+      "name": "14. programa.o NO esta commiteado",
+      "setup": "",
+      "run": "! test -f programa.o",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 3
+    },
+    {
+      "name": "R1. Respuesta: LINEAS_I es un numero de 3 o 4 digitos",
+      "setup": "",
+      "run": "grep -qE '^LINEAS_I=[0-9]{3,4}$' respuestas.md",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 4
+    },
+    {
+      "name": "R2. Respuesta: CUADRADO_EN_I=NO",
+      "setup": "",
+      "run": "grep -qiE '^CUADRADO_EN_I=NO$' respuestas.md",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "R3. Respuesta: NOMBRE_MACRO_VERSION=VERSION",
+      "setup": "",
+      "run": "grep -qE '^NOMBRE_MACRO_VERSION=VERSION$' respuestas.md",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "R4. Respuesta: COMENTARIOS_EN_I=NO",
+      "setup": "",
+      "run": "grep -qiE '^COMENTARIOS_EN_I=NO$' respuestas.md",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "R5. Respuesta: DEBUG_ACTIVA_CODIGO=SI",
+      "setup": "",
+      "run": "grep -qiE '^DEBUG_ACTIVA_CODIGO=SI$' respuestas.md",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "R6. Respuesta: AREA_EN_S=LLAMADA",
+      "setup": "",
+      "run": "grep -qiE '^AREA_EN_S=LLAMADA$' respuestas.md",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "R7. Respuesta: LLAMADAS_EN_S=SI",
+      "setup": "",
+      "run": "grep -qiE '^LLAMADAS_EN_S=SI$' respuestas.md",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 4
+    },
+    {
+      "name": "R8. Respuesta: TIPO_AREA_EN_O=U",
+      "setup": "",
+      "run": "grep -qE '^TIPO_AREA_EN_O=U$' respuestas.md",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "R9. Respuesta: ETAPA_QUE_RESUELVE=ENLAZADO",
+      "setup": "",
+      "run": "grep -qiE '^ETAPA_QUE_RESUELVE=ENLAZADO$' respuestas.md",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "R10. Respuesta: EJECUTABLE_O=NO",
+      "setup": "",
+      "run": "grep -qiE '^EJECUTABLE_O=NO$' respuestas.md",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 4
+    },
+    {
+      "name": "R11. Respuesta: TIPO_AREA_ENLAZADO=T",
+      "setup": "",
+      "run": "grep -qE '^TIPO_AREA_ENLAZADO=T$' respuestas.md",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "R12. Respuesta: SIMBOLOS_U_FINAL=SI",
+      "setup": "",
+      "run": "grep -qiE '^SIMBOLOS_U_FINAL=SI$' respuestas.md",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    },
+    {
+      "name": "R13. Respuesta: FACTORIAL_5=120",
+      "setup": "",
+      "run": "grep -qE '^FACTORIAL_5=120$' respuestas.md",
+      "input": "", "output": "", "comparison": "included",
+      "timeout": 10, "points": 5
+    }
+  ]
+}
