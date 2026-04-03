@@ -1,0 +1,17 @@
+=== Laboratorio de Compilacion en C (v1.0) ===
+
+[DEBUG] Iniciando main
+sumar(3, 4)       = 7
+CUADRADO(5)      = 25
+MAX(7, 12)        = 12
+----------------------------------------
+area_circulo(5.0) = 78.5398
+Factoriales:
+  0! = 1
+  1! = 1
+  2! = 2
+  3! = 6
+  4! = 24
+  5! = 120
+----------------------------------------
+Llamadas a sumar(): 1

@@ -1,0 +1,8 @@
+0000000100000000 T __mh_execute_header
+00000001000006a0 T _area_circulo
+00000001000006d4 T _factorial
+0000000100000684 T _imprimir_separador
+0000000100008000 S _llamadas
+0000000100000528 T _main
+                 U _printf
+00000001000004f8 T _sumar
