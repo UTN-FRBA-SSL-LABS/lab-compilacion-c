@@ -163,71 +163,99 @@ jobs:
       # ── Puntaje final ──────────────────────────────────────────
       - name: Calcular puntaje
         if: always()
+        env:
+          O_T1:  ${{ steps.t1.outcome }}
+          O_T2:  ${{ steps.t2.outcome }}
+          O_T3:  ${{ steps.t3.outcome }}
+          O_T4:  ${{ steps.t4.outcome }}
+          O_T5:  ${{ steps.t5.outcome }}
+          O_T6:  ${{ steps.t6.outcome }}
+          O_T7:  ${{ steps.t7.outcome }}
+          O_T8:  ${{ steps.t8.outcome }}
+          O_T9:  ${{ steps.t9.outcome }}
+          O_T10: ${{ steps.t10.outcome }}
+          O_T11: ${{ steps.t11.outcome }}
+          O_T12: ${{ steps.t12.outcome }}
+          O_T13: ${{ steps.t13.outcome }}
+          O_T14: ${{ steps.t14.outcome }}
+          O_R1:  ${{ steps.r1.outcome }}
+          O_R2:  ${{ steps.r2.outcome }}
+          O_R3:  ${{ steps.r3.outcome }}
+          O_R4:  ${{ steps.r4.outcome }}
+          O_R5:  ${{ steps.r5.outcome }}
+          O_R6:  ${{ steps.r6.outcome }}
+          O_R7:  ${{ steps.r7.outcome }}
+          O_R8:  ${{ steps.r8.outcome }}
+          O_R9:  ${{ steps.r9.outcome }}
+          O_R10: ${{ steps.r10.outcome }}
+          O_R11: ${{ steps.r11.outcome }}
+          O_R12: ${{ steps.r12.outcome }}
+          O_R13: ${{ steps.r13.outcome }}
         run: |
           pts() { [ "$1" = "success" ] && echo "$2" || echo 0; }
           row() { [ "$2" = "success" ] && echo "| $1 | ✅ | $3 / $3 |" || echo "| $1 | ❌ | 0 / $3 |"; }
 
           SCORE=0
-          SCORE=$((SCORE + $(pts "${{ steps.t1.outcome }}"  2)))
-          SCORE=$((SCORE + $(pts "${{ steps.t2.outcome }}"  3)))
-          SCORE=$((SCORE + $(pts "${{ steps.t3.outcome }}"  3)))
-          SCORE=$((SCORE + $(pts "${{ steps.t4.outcome }}"  3)))
-          SCORE=$((SCORE + $(pts "${{ steps.t5.outcome }}"  2)))
-          SCORE=$((SCORE + $(pts "${{ steps.t6.outcome }}"  2)))
-          SCORE=$((SCORE + $(pts "${{ steps.t7.outcome }}"  2)))
-          SCORE=$((SCORE + $(pts "${{ steps.t8.outcome }}"  3)))
-          SCORE=$((SCORE + $(pts "${{ steps.t9.outcome }}"  4)))
-          SCORE=$((SCORE + $(pts "${{ steps.t10.outcome }}" 4)))
-          SCORE=$((SCORE + $(pts "${{ steps.t11.outcome }}" 4)))
-          SCORE=$((SCORE + $(pts "${{ steps.t12.outcome }}" 3)))
-          SCORE=$((SCORE + $(pts "${{ steps.t13.outcome }}" 5)))
-          SCORE=$((SCORE + $(pts "${{ steps.t14.outcome }}" 2)))
-          SCORE=$((SCORE + $(pts "${{ steps.r1.outcome }}"  4)))
-          SCORE=$((SCORE + $(pts "${{ steps.r2.outcome }}"  4)))
-          SCORE=$((SCORE + $(pts "${{ steps.r3.outcome }}"  4)))
-          SCORE=$((SCORE + $(pts "${{ steps.r4.outcome }}"  4)))
-          SCORE=$((SCORE + $(pts "${{ steps.r5.outcome }}"  5)))
-          SCORE=$((SCORE + $(pts "${{ steps.r6.outcome }}"  5)))
-          SCORE=$((SCORE + $(pts "${{ steps.r7.outcome }}"  4)))
-          SCORE=$((SCORE + $(pts "${{ steps.r8.outcome }}"  5)))
-          SCORE=$((SCORE + $(pts "${{ steps.r9.outcome }}"  4)))
-          SCORE=$((SCORE + $(pts "${{ steps.r10.outcome }}" 4)))
-          SCORE=$((SCORE + $(pts "${{ steps.r11.outcome }}" 4)))
-          SCORE=$((SCORE + $(pts "${{ steps.r12.outcome }}" 5)))
-          SCORE=$((SCORE + $(pts "${{ steps.r13.outcome }}" 6)))
+          SCORE=$((SCORE + $(pts "$O_T1"  2)))
+          SCORE=$((SCORE + $(pts "$O_T2"  3)))
+          SCORE=$((SCORE + $(pts "$O_T3"  3)))
+          SCORE=$((SCORE + $(pts "$O_T4"  3)))
+          SCORE=$((SCORE + $(pts "$O_T5"  2)))
+          SCORE=$((SCORE + $(pts "$O_T6"  2)))
+          SCORE=$((SCORE + $(pts "$O_T7"  2)))
+          SCORE=$((SCORE + $(pts "$O_T8"  3)))
+          SCORE=$((SCORE + $(pts "$O_T9"  4)))
+          SCORE=$((SCORE + $(pts "$O_T10" 4)))
+          SCORE=$((SCORE + $(pts "$O_T11" 4)))
+          SCORE=$((SCORE + $(pts "$O_T12" 3)))
+          SCORE=$((SCORE + $(pts "$O_T13" 5)))
+          SCORE=$((SCORE + $(pts "$O_T14" 2)))
+          SCORE=$((SCORE + $(pts "$O_R1"  4)))
+          SCORE=$((SCORE + $(pts "$O_R2"  4)))
+          SCORE=$((SCORE + $(pts "$O_R3"  4)))
+          SCORE=$((SCORE + $(pts "$O_R4"  4)))
+          SCORE=$((SCORE + $(pts "$O_R5"  5)))
+          SCORE=$((SCORE + $(pts "$O_R6"  5)))
+          SCORE=$((SCORE + $(pts "$O_R7"  4)))
+          SCORE=$((SCORE + $(pts "$O_R8"  5)))
+          SCORE=$((SCORE + $(pts "$O_R9"  4)))
+          SCORE=$((SCORE + $(pts "$O_R10" 4)))
+          SCORE=$((SCORE + $(pts "$O_R11" 4)))
+          SCORE=$((SCORE + $(pts "$O_R12" 5)))
+          SCORE=$((SCORE + $(pts "$O_R13" 6)))
 
           {
             echo "## Puntaje: $SCORE / 100"
             echo ""
             echo "| Test | Resultado | Puntos |"
             echo "|------|:---------:|-------:|"
-            row "1. programa.i existe"                          "${{ steps.t1.outcome }}"  2
-            row "2. No hay #define en programa.i"               "${{ steps.t2.outcome }}"  3
-            row "3. VERSION expandido a '1.0'"                  "${{ steps.t3.outcome }}"  3
-            row "4. CUADRADO(LIMITE) expandido"                 "${{ steps.t4.outcome }}"  3
-            row "5. Comentarios eliminados"                     "${{ steps.t5.outcome }}"  2
-            row "6. Headers completos (>500 líneas)"            "${{ steps.t6.outcome }}"  2
-            row "7. programa.s existe"                          "${{ steps.t7.outcome }}"  2
-            row "8. sumar definida en programa.s"               "${{ steps.t8.outcome }}"  3
-            row "9. area_circulo no definida en .s"             "${{ steps.t9.outcome }}"  4
-            row "10. area_circulo U en nm_programa_o.txt"       "${{ steps.t10.outcome }}" 4
-            row "11. area_circulo T en nm_ejecutable.txt"       "${{ steps.t11.outcome }}" 4
-            row "12. [DEBUG] en salida_debug.txt"               "${{ steps.t12.outcome }}" 3
-            row "13. Compila y factorial(5)=120"                "${{ steps.t13.outcome }}" 5
-            row "14. programa.o no commiteado"                  "${{ steps.t14.outcome }}" 2
-            row "R1. LINEAS_I (3-4 dígitos)"                   "${{ steps.r1.outcome }}"  4
-            row "R2. CUADRADO_EN_I=NO"                         "${{ steps.r2.outcome }}"  4
-            row "R3. NOMBRE_MACRO_VERSION=VERSION"              "${{ steps.r3.outcome }}"  4
-            row "R4. COMENTARIOS_EN_I=NO"                      "${{ steps.r4.outcome }}"  4
-            row "R5. DEBUG_ACTIVA_CODIGO=SI"                   "${{ steps.r5.outcome }}"  5
-            row "R6. AREA_EN_S=LLAMADA"                        "${{ steps.r6.outcome }}"  5
-            row "R7. LLAMADAS_EN_S=SI"                         "${{ steps.r7.outcome }}"  4
-            row "R8. TIPO_AREA_EN_O=U"                         "${{ steps.r8.outcome }}"  5
-            row "R9. ETAPA_QUE_RESUELVE=ENLAZADO"              "${{ steps.r9.outcome }}"  4
-            row "R10. EJECUTABLE_O=NO"                         "${{ steps.r10.outcome }}" 4
-            row "R11. TIPO_AREA_ENLAZADO=T"                    "${{ steps.r11.outcome }}" 4
-            row "R12. SIMBOLOS_U_FINAL=SI"                     "${{ steps.r12.outcome }}" 5
-            row "R13. FACTORIAL_5=120"                         "${{ steps.r13.outcome }}" 6
+            row "1. programa.i existe"                          "$O_T1"  2
+            row "2. No hay #define en programa.i"               "$O_T2"  3
+            row "3. VERSION expandido a '1.0'"                  "$O_T3"  3
+            row "4. CUADRADO(LIMITE) expandido"                 "$O_T4"  3
+            row "5. Comentarios eliminados"                     "$O_T5"  2
+            row "6. Headers completos (>500 líneas)"            "$O_T6"  2
+            row "7. programa.s existe"                          "$O_T7"  2
+            row "8. sumar definida en programa.s"               "$O_T8"  3
+            row "9. area_circulo no definida en .s"             "$O_T9"  4
+            row "10. area_circulo U en nm_programa_o.txt"       "$O_T10" 4
+            row "11. area_circulo T en nm_ejecutable.txt"       "$O_T11" 4
+            row "12. [DEBUG] en salida_debug.txt"               "$O_T12" 3
+            row "13. Compila y factorial(5)=120"                "$O_T13" 5
+            row "14. programa.o no commiteado"                  "$O_T14" 2
+            row "R1. LINEAS_I (3-4 dígitos)"                   "$O_R1"  4
+            row "R2. CUADRADO_EN_I=NO"                         "$O_R2"  4
+            row "R3. NOMBRE_MACRO_VERSION=VERSION"              "$O_R3"  4
+            row "R4. COMENTARIOS_EN_I=NO"                      "$O_R4"  4
+            row "R5. DEBUG_ACTIVA_CODIGO=SI"                   "$O_R5"  5
+            row "R6. AREA_EN_S=LLAMADA"                        "$O_R6"  5
+            row "R7. LLAMADAS_EN_S=SI"                         "$O_R7"  4
+            row "R8. TIPO_AREA_EN_O=U"                         "$O_R8"  5
+            row "R9. ETAPA_QUE_RESUELVE=ENLAZADO"              "$O_R9"  4
+            row "R10. EJECUTABLE_O=NO"                         "$O_R10" 4
+            row "R11. TIPO_AREA_ENLAZADO=T"                    "$O_R11" 4
+            row "R12. SIMBOLOS_U_FINAL=SI"                     "$O_R12" 5
+            row "R13. FACTORIAL_5=120"                         "$O_R13" 6
           } >> "$GITHUB_STEP_SUMMARY"
 
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
