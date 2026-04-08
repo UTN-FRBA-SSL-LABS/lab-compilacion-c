@@ -230,5 +230,27 @@ jobs:
             row "R13. FACTORIAL_5=120"                         "${{ steps.r13.outcome }}" 6
           } >> "$GITHUB_STEP_SUMMARY"
 
-          echo "Puntaje final: $SCORE/100"
-          [ "$SCORE" -ge 60 ] || exit 1
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  Puntaje: $SCORE / 100"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          if [ "$SCORE" -eq 100 ]; then
+            echo ""
+            echo "🎉 ¡Felicitaciones! Obtuviste 100/100. Laboratorio completado."
+          elif [ "$SCORE" -ge 60 ]; then
+            echo ""
+            echo "✅ ¡Aprobado! Obtuviste $SCORE/100."
+            echo "   Revisá los tests con ❌ en el resumen si querés mejorar tu puntaje."
+          else
+            echo ""
+            echo "❌ Puntaje insuficiente: $SCORE/100 (mínimo 60)."
+            echo "   Revisá los tests que no pasaron en el resumen de arriba,"
+            echo "   corregí los errores y volvé a hacer push."
+            exit 1
+          fi
+
+      # ── Reporte a GitHub Classroom ─────────────────────────────
+      - name: Resultado autograding
+        if: always()
+        uses: education/autograding@v1
+        continue-on-error: true
