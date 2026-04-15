@@ -3,6 +3,12 @@ name: Autograding
 on:
   push:
     branches: [ "**" ]
+    paths:
+      - "*.i"
+      - "*.s"
+      - "*.c"
+      - "salidas/**"
+      - "proceso_compilacion.md"
 
 permissions:
   checks: write
