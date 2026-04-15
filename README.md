@@ -56,7 +56,17 @@ nm programa   > salidas/nm_ejecutable.txt        # guarda la tabla de símbolos 
 
 Abrí el archivo con cualquier editor y respondé cada pregunta en el lugar indicado, con la salida real de los comandos que ejecutaste.
 
-#### Paso 4: Commitear y hacer push
+#### Paso 4: Verificar localmente y hacer push
+
+Antes de pushear, verificá tu puntaje local con:
+
+```bash
+make test
+```
+
+> **Tip:** el workflow de corrección solo se activa cuando pusheás cambios en archivos `.i`, `.s`, `.c`, `salidas/` o `proceso_compilacion.md`. Para todo lo demás, `make test` te da el mismo resultado sin consumir minutos de GitHub Actions.
+
+#### Paso 4b: Commitear y hacer push
 
 Verificar qué archivos están listos para commitear:
 
