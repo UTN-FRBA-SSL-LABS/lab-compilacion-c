@@ -10,7 +10,7 @@
 
 Este laboratorio se entrega a través de **GitHub Classroom**. Al aceptar el assignment se te creó un repositorio personal en la organización de la materia con todos los archivos necesarios.
 
-**El flujo es simple**: trabajás en `main` y hacés push.** No hace falta crear ramas ni abrir Pull Requests manualmente, GitHub Classroom crea automáticamente una rama `feedback` y abre un PR en tu repositorio. Ahí es donde el docente revisa tu trabajo y donde ves los resultados de los tests.
+**El flujo es simple**: trabajás en `main`, verificás localmente con `make test`, y cuando está listo hacés push. GitHub ejecuta automáticamente el workflow de corrección y podés ver los resultados en la pestaña **Actions** de tu repositorio.
 
 **Opciones para trabajar:**
 - **Local:** clonar el repositorio en tu máquina con `git clone` y trabajar con el editor que prefieras.
@@ -92,14 +92,15 @@ git log --oneline
 
 > **`programa.o` y los ejecutables no deben aparecer en `git status`.** Si aparecen, el `.gitignore` no está funcionando, no usar `git add .`, agregar cada archivo por nombre.
 
-#### Paso 5: Revisar el Pull Request de feedback
+#### Paso 5: Ver resultados en GitHub
 
-Una vez que hiciste push, entrá a tu repositorio en GitHub. Ya va a haber un Pull Request abierto llamado **"Feedback"**. Ahí podés ver:
+Una vez que hiciste push, entrá a tu repositorio en GitHub:
 
-- Los **checks automáticos** en la pestaña "Checks": ✅ pasó / ❌ falló.
-- Los **comentarios del docente** sobre tus respuestas abiertas.
+1. Hacé click en la pestaña **Actions**
+2. Hacé click en la ejecución más reciente → job **Autograding**
+3. Al final del job vas a ver la tabla con el resultado de cada check y el puntaje total
 
-Si algún check falla, corregí el problema, commitá el archivo y hacé push nuevamente — los checks se re-ejecutan solos.
+Si algún check falla, corregí el problema, commiteá y volvé a pushear — el workflow se re-ejecuta solo.
 
 > ⚠️ **Evitá pushes innecesarios.** Cada ejecución consume cómputo en servidores de GitHub — un recurso compartido. El workflow solo se activa cuando pusheás cambios en archivos `.i`, `.s`, `.c`, `salidas/` o `proceso_compilacion.md`. Para el resto, `make test` te da el mismo resultado en tu terminal sin costo.
 
@@ -112,7 +113,7 @@ Los checks son de dos tipos:
 **Sobre las respuestas en este archivo:**
 
 - Las **respuestas cerradas** (`CLAVE=valor`) se verifican automáticamente con cada push. Deben escribirse exactamente como se indica: sin espacios, sin comillas, respetando mayúsculas.
-- Las **respuestas abiertas** (`> **R:**`) **no se evalúan automáticamente**. Las lee el docente en el Pull Request de feedback y puede dejar comentarios sobre ellas. Escribilas con tus propias palabras.
+- Las **respuestas abiertas** (`> **R:**`) no se evalúan automáticamente. Escribilas con tus propias palabras — el docente las revisa manualmente.
 
 ---
 
