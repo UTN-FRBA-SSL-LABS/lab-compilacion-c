@@ -58,13 +58,15 @@ Abrí el archivo con cualquier editor y respondé cada pregunta en el lugar indi
 
 #### Paso 4: Verificar localmente y hacer push
 
-Antes de pushear, verificá tu puntaje local con:
+Antes de pushear, verificá tu puntaje con:
 
 ```bash
 make test
 ```
 
-> **Tip:** el workflow de corrección solo se activa cuando pusheás cambios en archivos `.i`, `.s`, `.c`, `salidas/` o `proceso_compilacion.md`. Para todo lo demás, `make test` te da el mismo resultado sin consumir minutos de GitHub Actions.
+**Flujo recomendado:** hacé commits frecuentes mientras avanzás, usá `make test` para verificar tu progreso, y dejá el push para cuando una parte esté realmente lista.
+
+Cuando estés listo/a, commiteá y pusheá:
 
 #### Paso 4b: Commitear y hacer push
 
@@ -98,6 +100,8 @@ Una vez que hiciste push, entrá a tu repositorio en GitHub. Ya va a haber un Pu
 - Los **comentarios del docente** sobre tus respuestas abiertas.
 
 Si algún check falla, corregí el problema, commitá el archivo y hacé push nuevamente — los checks se re-ejecutan solos.
+
+> ⚠️ **Evitá pushes innecesarios.** Cada ejecución consume cómputo en servidores de GitHub — un recurso compartido. El workflow solo se activa cuando pusheás cambios en archivos `.i`, `.s`, `.c`, `salidas/` o `proceso_compilacion.md`. Para el resto, `make test` te da el mismo resultado en tu terminal sin costo.
 
 ---
 
