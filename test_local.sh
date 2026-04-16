@@ -76,43 +76,43 @@ check T14 "programa.o NO esta commiteado" 2 \
 
 # ── Respuestas cerradas ────────────────────────────
 check R1  "LINEAS_I es un numero de 3 o 4 digitos" 4 \
-  bash -c "grep -qE '^LINEAS_I=[0-9]{3,4}$' proceso_compilacion.md"
+  bash -c "grep -qE '^LINEAS_I=[0-9]{3,4}$' README.md"
 
 check R2  "CUADRADO_EN_I=NO" 4 \
-  bash -c "grep -qiE '^CUADRADO_EN_I=NO$' proceso_compilacion.md"
+  bash -c "grep -qiE '^CUADRADO_EN_I=NO$' README.md"
 
 check R3  "NOMBRE_MACRO_VERSION=VERSION" 4 \
-  bash -c "grep -qE '^NOMBRE_MACRO_VERSION=VERSION$' proceso_compilacion.md"
+  bash -c "grep -qE '^NOMBRE_MACRO_VERSION=VERSION$' README.md"
 
 check R4  "COMENTARIOS_EN_I=NO" 4 \
-  bash -c "grep -qiE '^COMENTARIOS_EN_I=NO$' proceso_compilacion.md"
+  bash -c "grep -qiE '^COMENTARIOS_EN_I=NO$' README.md"
 
 check R5  "DEBUG_ACTIVA_CODIGO=SI" 5 \
-  bash -c "grep -qiE '^DEBUG_ACTIVA_CODIGO=SI$' proceso_compilacion.md"
+  bash -c "grep -qiE '^DEBUG_ACTIVA_CODIGO=SI$' README.md"
 
 check R6  "AREA_EN_S=LLAMADA" 5 \
-  bash -c "grep -qiE '^AREA_EN_S=LLAMADA$' proceso_compilacion.md"
+  bash -c "grep -qiE '^AREA_EN_S=LLAMADA$' README.md"
 
 check R7  "LLAMADAS_EN_S=SI" 4 \
-  bash -c "grep -qiE '^LLAMADAS_EN_S=SI$' proceso_compilacion.md"
+  bash -c "grep -qiE '^LLAMADAS_EN_S=SI$' README.md"
 
 check R8  "TIPO_AREA_EN_O=U" 5 \
-  bash -c "grep -qE '^TIPO_AREA_EN_O=U$' proceso_compilacion.md"
+  bash -c "grep -qE '^TIPO_AREA_EN_O=U$' README.md"
 
 check R9  "ETAPA_QUE_RESUELVE=ENLAZADO" 4 \
-  bash -c "grep -qiE '^ETAPA_QUE_RESUELVE=ENLAZADO$' proceso_compilacion.md"
+  bash -c "grep -qiE '^ETAPA_QUE_RESUELVE=ENLAZADO$' README.md"
 
 check R10 "EJECUTABLE_O=NO" 4 \
-  bash -c "grep -qiE '^EJECUTABLE_O=NO$' proceso_compilacion.md"
+  bash -c "grep -qiE '^EJECUTABLE_O=NO$' README.md"
 
 check R11 "TIPO_AREA_ENLAZADO=T" 4 \
-  bash -c "grep -qE '^TIPO_AREA_ENLAZADO=T$' proceso_compilacion.md"
+  bash -c "grep -qE '^TIPO_AREA_ENLAZADO=T$' README.md"
 
 check R12 "SIMBOLOS_U_FINAL=SI" 5 \
-  bash -c "grep -qiE '^SIMBOLOS_U_FINAL=SI$' proceso_compilacion.md"
+  bash -c "grep -qiE '^SIMBOLOS_U_FINAL=SI$' README.md"
 
 check R13 "FACTORIAL_5=120" 6 \
-  bash -c "grep -qE '^FACTORIAL_5=120$' proceso_compilacion.md"
+  bash -c "grep -qE '^FACTORIAL_5=120$' README.md"
 
 # ── Resumen ────────────────────────────────────────
 echo ""

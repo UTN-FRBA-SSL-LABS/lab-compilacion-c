@@ -8,7 +8,7 @@ on:
       - "*.s"
       - "*.c"
       - "salidas/**"
-      - "proceso_compilacion.md"
+      - "README.md"
 
 permissions:
   checks: write
@@ -99,72 +99,72 @@ jobs:
         continue-on-error: true
         run: "! test -f programa.o"
 
-      # ── Respuestas cerradas de proceso_compilacion.md ──────────
+      # ── Respuestas cerradas de README.md ──────────
 
       - name: "R1. Respuesta: LINEAS_I es un numero de 3 o 4 digitos"
         id: r1
         continue-on-error: true
-        run: grep -qE '^LINEAS_I=[0-9]{3,4}$' proceso_compilacion.md
+        run: grep -qE '^LINEAS_I=[0-9]{3,4}$' README.md
 
       - name: "R2. Respuesta: CUADRADO_EN_I=NO"
         id: r2
         continue-on-error: true
-        run: grep -qiE '^CUADRADO_EN_I=NO$' proceso_compilacion.md
+        run: grep -qiE '^CUADRADO_EN_I=NO$' README.md
 
       - name: "R3. Respuesta: NOMBRE_MACRO_VERSION=VERSION"
         id: r3
         continue-on-error: true
-        run: grep -qE '^NOMBRE_MACRO_VERSION=VERSION$' proceso_compilacion.md
+        run: grep -qE '^NOMBRE_MACRO_VERSION=VERSION$' README.md
 
       - name: "R4. Respuesta: COMENTARIOS_EN_I=NO"
         id: r4
         continue-on-error: true
-        run: grep -qiE '^COMENTARIOS_EN_I=NO$' proceso_compilacion.md
+        run: grep -qiE '^COMENTARIOS_EN_I=NO$' README.md
 
       - name: "R5. Respuesta: DEBUG_ACTIVA_CODIGO=SI"
         id: r5
         continue-on-error: true
-        run: grep -qiE '^DEBUG_ACTIVA_CODIGO=SI$' proceso_compilacion.md
+        run: grep -qiE '^DEBUG_ACTIVA_CODIGO=SI$' README.md
 
       - name: "R6. Respuesta: AREA_EN_S=LLAMADA"
         id: r6
         continue-on-error: true
-        run: grep -qiE '^AREA_EN_S=LLAMADA$' proceso_compilacion.md
+        run: grep -qiE '^AREA_EN_S=LLAMADA$' README.md
 
       - name: "R7. Respuesta: LLAMADAS_EN_S=SI"
         id: r7
         continue-on-error: true
-        run: grep -qiE '^LLAMADAS_EN_S=SI$' proceso_compilacion.md
+        run: grep -qiE '^LLAMADAS_EN_S=SI$' README.md
 
       - name: "R8. Respuesta: TIPO_AREA_EN_O=U"
         id: r8
         continue-on-error: true
-        run: grep -qE '^TIPO_AREA_EN_O=U$' proceso_compilacion.md
+        run: grep -qE '^TIPO_AREA_EN_O=U$' README.md
 
       - name: "R9. Respuesta: ETAPA_QUE_RESUELVE=ENLAZADO"
         id: r9
         continue-on-error: true
-        run: grep -qiE '^ETAPA_QUE_RESUELVE=ENLAZADO$' proceso_compilacion.md
+        run: grep -qiE '^ETAPA_QUE_RESUELVE=ENLAZADO$' README.md
 
       - name: "R10. Respuesta: EJECUTABLE_O=NO"
         id: r10
         continue-on-error: true
-        run: grep -qiE '^EJECUTABLE_O=NO$' proceso_compilacion.md
+        run: grep -qiE '^EJECUTABLE_O=NO$' README.md
 
       - name: "R11. Respuesta: TIPO_AREA_ENLAZADO=T"
         id: r11
         continue-on-error: true
-        run: grep -qE '^TIPO_AREA_ENLAZADO=T$' proceso_compilacion.md
+        run: grep -qE '^TIPO_AREA_ENLAZADO=T$' README.md
 
       - name: "R12. Respuesta: SIMBOLOS_U_FINAL=SI"
         id: r12
         continue-on-error: true
-        run: grep -qiE '^SIMBOLOS_U_FINAL=SI$' proceso_compilacion.md
+        run: grep -qiE '^SIMBOLOS_U_FINAL=SI$' README.md
 
       - name: "R13. Respuesta: FACTORIAL_5=120"
         id: r13
         continue-on-error: true
-        run: grep -qE '^FACTORIAL_5=120$' proceso_compilacion.md
+        run: grep -qE '^FACTORIAL_5=120$' README.md
 
       # ── Puntaje final ──────────────────────────────────────────
       - name: Calcular puntaje
