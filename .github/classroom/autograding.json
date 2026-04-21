@@ -101,91 +101,91 @@
     {
       "name": "R1. Respuesta: LINEAS_I es un numero de 3 o 4 digitos",
       "setup": "",
-      "run": "grep -qE '^LINEAS_I=[0-9]{3,4}$' proceso_compilacion.md",
+      "run": "grep -qE '^LINEAS_I=[0-9]{3,4}$' readme.md",
       "input": "", "output": "", "comparison": "included",
       "timeout": 10, "points": 4
     },
     {
       "name": "R2. Respuesta: CUADRADO_EN_I=NO",
       "setup": "",
-      "run": "grep -qiE '^CUADRADO_EN_I=NO$' proceso_compilacion.md",
+      "run": "grep -qiE '^CUADRADO_EN_I=NO$' readme.md",
       "input": "", "output": "", "comparison": "included",
       "timeout": 10, "points": 4
     },
     {
       "name": "R3. Respuesta: NOMBRE_MACRO_VERSION=VERSION",
       "setup": "",
-      "run": "grep -qE '^NOMBRE_MACRO_VERSION=VERSION$' proceso_compilacion.md",
+      "run": "grep -qE '^NOMBRE_MACRO_VERSION=VERSION$' readme.md",
       "input": "", "output": "", "comparison": "included",
       "timeout": 10, "points": 4
     },
     {
       "name": "R4. Respuesta: COMENTARIOS_EN_I=NO",
       "setup": "",
-      "run": "grep -qiE '^COMENTARIOS_EN_I=NO$' proceso_compilacion.md",
+      "run": "grep -qiE '^COMENTARIOS_EN_I=NO$' readme.md",
       "input": "", "output": "", "comparison": "included",
       "timeout": 10, "points": 4
     },
     {
       "name": "R5. Respuesta: DEBUG_ACTIVA_CODIGO=SI",
       "setup": "",
-      "run": "grep -qiE '^DEBUG_ACTIVA_CODIGO=SI$' proceso_compilacion.md",
+      "run": "grep -qiE '^DEBUG_ACTIVA_CODIGO=SI$' readme.md",
       "input": "", "output": "", "comparison": "included",
       "timeout": 10, "points": 5
     },
     {
       "name": "R6. Respuesta: AREA_EN_S=LLAMADA",
       "setup": "",
-      "run": "grep -qiE '^AREA_EN_S=LLAMADA$' proceso_compilacion.md",
+      "run": "grep -qiE '^AREA_EN_S=LLAMADA$' readme.md",
       "input": "", "output": "", "comparison": "included",
       "timeout": 10, "points": 5
     },
     {
       "name": "R7. Respuesta: LLAMADAS_EN_S=SI",
       "setup": "",
-      "run": "grep -qiE '^LLAMADAS_EN_S=SI$' proceso_compilacion.md",
+      "run": "grep -qiE '^LLAMADAS_EN_S=SI$' readme.md",
       "input": "", "output": "", "comparison": "included",
       "timeout": 10, "points": 4
     },
     {
       "name": "R8. Respuesta: TIPO_AREA_EN_O=U",
       "setup": "",
-      "run": "grep -qE '^TIPO_AREA_EN_O=U$' proceso_compilacion.md",
+      "run": "grep -qE '^TIPO_AREA_EN_O=U$' readme.md",
       "input": "", "output": "", "comparison": "included",
       "timeout": 10, "points": 5
     },
     {
       "name": "R9. Respuesta: ETAPA_QUE_RESUELVE=ENLAZADO",
       "setup": "",
-      "run": "grep -qiE '^ETAPA_QUE_RESUELVE=ENLAZADO$' proceso_compilacion.md",
+      "run": "grep -qiE '^ETAPA_QUE_RESUELVE=ENLAZADO$' readme.md",
       "input": "", "output": "", "comparison": "included",
       "timeout": 10, "points": 4
     },
     {
       "name": "R10. Respuesta: EJECUTABLE_O=NO",
       "setup": "",
-      "run": "grep -qiE '^EJECUTABLE_O=NO$' proceso_compilacion.md",
+      "run": "grep -qiE '^EJECUTABLE_O=NO$' readme.md",
       "input": "", "output": "", "comparison": "included",
       "timeout": 10, "points": 4
     },
     {
       "name": "R11. Respuesta: TIPO_AREA_ENLAZADO=T",
       "setup": "",
-      "run": "grep -qE '^TIPO_AREA_ENLAZADO=T$' proceso_compilacion.md",
+      "run": "grep -qE '^TIPO_AREA_ENLAZADO=T$' readme.md",
       "input": "", "output": "", "comparison": "included",
       "timeout": 10, "points": 4
     },
     {
       "name": "R12. Respuesta: SIMBOLOS_U_FINAL=SI",
       "setup": "",
-      "run": "grep -qiE '^SIMBOLOS_U_FINAL=SI$' proceso_compilacion.md",
+      "run": "grep -qiE '^SIMBOLOS_U_FINAL=SI$' readme.md",
       "input": "", "output": "", "comparison": "included",
       "timeout": 10, "points": 5
     },
     {
       "name": "R13. Respuesta: FACTORIAL_5=120",
       "setup": "",
-      "run": "grep -qE '^FACTORIAL_5=120$' proceso_compilacion.md",
+      "run": "grep -qE '^FACTORIAL_5=120$' readme.md",
       "input": "", "output": "", "comparison": "included",
       "timeout": 10, "points": 6
     }
